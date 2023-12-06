@@ -1,0 +1,137 @@
+<html>
+	<head>
+		<title>true.code</title>
+		<link rel="stylesheet" href="style.css" type="text/css"/>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+		<script src="https://www.google.com/jsapi"></script>
+		<script src="script.js" defer></script>
+	</head>
+	
+	<body>
+		<header>
+			<img src="https://t-code.ru/wp-content/themes/true/assets/images/static/logo.svg"
+			style="width: 125px; height: 25px; margin: 15px 0px 0px 40px;">
+			<div class="bold"
+			style="margin: 15px 0px 0px 0px;">Дашборд Компания</div>
+			<img src="/arrow.png"
+			style="margin: 15px;">
+		</header>
+		
+		<div class="main">
+			
+			<div class="date">
+				<div class="bold">Дашборд со статистикой</div>
+				
+				<div style="padding: 10px; background: white; border-radius: 4px; box-shadow: 0px 3px 3px 0px #00000040;">
+					<div>Выбрать проект</div>
+					<div id="table">
+						<select id="idProj" onchange="getData()">
+						</select>
+					</div>
+					<div id="demo"></div>
+				</div>
+				
+				<form style="padding: 10px; background: white; border-radius: 4px; box-shadow: 0px 3px 3px 0px #00000040;">
+					Отчетный период
+					<input type="text" name="daterange">
+				</form>
+			</div>
+			
+			<!--Первая линия блоков-->
+			<div class="line-of-containers">
+				<div class="container">
+					<div class="name-of-container">Посещаемость из поисковых систем</div>
+					<!--Круговая диаграмма-->
+					<div style="display:flex; justify-content:center">
+					<div class="pie">
+							<div id="googlePerc" style="margin-top:30;">Google</div>
+							<div id="yandexPerс">Яндекс</div>
+							
+							<!--Значения-->
+							<div id="attendance"><div style="--pie-p1:0%; --pie-p2:0%;"></div></div>
+					</div>
+					</div>
+				</div>
+				
+				<div class="container">
+					<div class="name-of-container">Конверсии</div>
+					<div id="conversChart" style="width: 1200px; height: 400px;"></div>
+				</div>
+				
+			</div>
+			
+			<!--Вторая линия блоков-->
+			<div class="line-of-containers">
+				<div class="container">
+					<div class="name-of-container">Источники трафика за период</div>
+					<!--Круговая диаграмма-->
+					<div style="display:flex; justify-content:center">
+					<div class="pie">
+							<div id='rightEnter' style="margin-top:30;">Прямые заходы</div>
+							<div id='anotherEnter'>Переходы из поисковых систем</div>
+							
+							<!--Значения-->
+							<div id="trafficEnter"><div style="--pie-p1:0%; --pie-p2:0%;"></div></div>
+					</div>
+					</div>
+				</div>
+				
+				<div class="container">
+					<div class="name-of-container">Позиции сайта по ключевым запросам в сравнении с прошлым месяцем</div>
+					<div id="keyword" style="height:684px;overflow-y:scroll;"></div>
+				</div>
+				
+				<div class="container">
+					<div class="name-of-container">Процент вывода в ТОП-10</div>
+					<!--Круговая диаграмма-->
+					<div style="display:flex; justify-content:center">
+					<div class="pie">
+							<div id="topGoogle" style="margin-top:30;">Google</div>
+							<!--Значения-->
+							
+							<div id="topGooglePerc"><div style="--pie-p1:0%;"></div></div>
+					</div>
+					</div>
+					
+					<!--Круговая диаграмма-->
+					<div style="display:flex; justify-content:center">
+					<div class="pie">
+							<div id="topYandex" style="margin-top:30;">Яндекс</div>
+							
+							<!--Значения-->
+							<div id="topYandexPerc"><div style="--pie-p1:0%;"></div></div>
+					</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--Третья линия блоков-->
+			<div class="line-of-containers" style="margin: 0px 0px 30px 0px">
+				<div class="container">
+					<div class="name-of-container">Типы успройств пользователей</div>
+					<!--Круговая диаграмма-->
+					<div style="display:flex; justify-content:center">
+					<div class="pie">
+							<div id='phone' style="margin-top:30;">Смартфоны</div>
+							<div id='pc'>ПК</div>
+							<div id='tablet'>Планшеты</div>
+							
+							<!--Значения-->
+							<div id="device"><div style="--pie-p1:0%; --pie-p2:0%; --pie-p3:0%;"></div></div>
+					</div>
+					</div>
+				</div>
+				
+				<div class="container">
+					<div class="name-of-container">Доля брендового и небрендового трафика</div>
+					<div id="trafficChart" style="width: 1200px; height: 400px;"></div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</body>
+</html>

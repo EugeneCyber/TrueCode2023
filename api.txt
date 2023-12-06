@@ -1,0 +1,30 @@
+https://api-metrika.yandex.net/management/v1/counters -> список счетчиков с названиями
+
+//6// https://api-metrika.yandex.net/stat/v1/data?dimensions=ym:s:deviceCategory&metrics=ym:s:visits&lang=ru&id=12418261
+ответ.data -> массив объектов с девайсами
+этот объект => .dimensions[0].id -> название девайсами
+               .metrics -> количество дивайсов этого типа
+
+//3// https://api-metrika.yandex.net/stat/v1/data?date1=2023-06-01&date2=2023-06-29&dimensions=ym:s:TrafficSource&metrics=ym:s:visits,ym:s:users&lang=ru&id=12418261
+ответ.data -> массив объектов с источниками трафика за время с date1 по date2
+этот объект => .dimensions[0].name -> название трафика
+               .metrics -> количество визитов (metrics[0]) и пользователей(metrics[1])
+
+//7// https://api-metrika.yandex.net/stat/v1/data?dimensions=ym:s:SourceEngine&metrics=ym:s:visits,ym:s:users&lang=ru&id=12418261
+ответ.data -> массив объектов с поисковыми системами
+этот объект => .dimensions[0].name -> название поисковой системы
+               .metrics -> количество визитов (metrics[0]) и пользователей(metrics[1])
+
+
+//9// https://api-metrika.yandex.net/stat/v1/data?dimensions=ym:s:goal&metrics=ym:s:anyGoalConversionRate&lang=ru&id=12418261
+ответ.data -> массив объектов с конверсиями по целям
+этот объект => .dimensions[0].name -> название цели
+               .metrics -> значение конверсии (metrics[0])
+
+//5// https://api-metrika.yandex.net/stat/v1/data?filters=ym:s:visits>2 OR ym:s:users>2&dimensions=ym:s:SearchPhrase&metrics=ym:s:visits,ym:s:users&lang=ru&id=12418261
+ответ.data -> массив объектов с поисковыми фразами
+этот объект => .dimensions[0].name -> фраза
+               .metrics -> количество визитов (metrics[0]) и пользователей(metrics[1])
+
+
+https://api-metrika.yandex.net/stat/v1/data?date1=${date1}&date2=${date2}&filteres=ym:s:isRobot=='NO'&dimensions=ym:s:goal&metrics=ym:s:anyGoalConversionRate&lang=ru&id=${id}
