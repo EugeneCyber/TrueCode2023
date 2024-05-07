@@ -6,8 +6,8 @@ import bodyParser from "body-parser";
 import {Model} from "./dataFromAPI.js";
 
 const __dirname = new URL("./",import.meta.url).href.slice(8);
-const tokenYandex = 'y0_AgAAAABu9NRrAAolqgAAAADnKTk34NU7eXSCTiG-M1YC6p-zwSwK9bc';
-const tokenTopVisor = '46d84eaa08c50379ce6b59607e0d5b79';
+const tokenYandex = 'need_new_token';
+const tokenTopVisor = 'need_new_token';
 const model = new Model(tokenYandex,tokenTopVisor);
 
 
